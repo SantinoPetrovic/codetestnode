@@ -19,6 +19,7 @@ const DB = new sqlite3.Database(config.dbpath, function(err){
 const users = require('./routes/users');
 const sites = require('./routes/sites');
 const alarmzones = require('./routes/alarmzones');
+const devices = require('./routes/devices');
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.get('/', function (req, res) {
 app.use('/users', users);
 app.use('/sites', sites);
 app.use('/alarms', alarmzones);
+app.use('/devices', devices);
 
 app.listen(port, function () {
     console.log('Server is running on port 3000.');	  

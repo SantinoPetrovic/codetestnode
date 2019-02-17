@@ -27,7 +27,7 @@ router.get('/getUsers', (req, res, next) => {
 });
 
 // Login route
-router.post('/login', (req, res, next) => {
+router.get('/login', (req, res, next) => {
     const userid = req.body.userid;
 
 	DB.serialize(function() {
