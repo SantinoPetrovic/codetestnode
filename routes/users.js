@@ -28,10 +28,10 @@ router.get('/getUsers', (req, res, next) => {
 
 // Login route
 router.post('/login', (req, res, next) => {
-    const id = req.body.id;
+    const userid = req.body.userid;
 
 	DB.serialize(function() {
-    	DB.all("SELECT * FROM users WHERE id = ?", [id], function(err, user) {
+    	DB.all("SELECT * FROM users WHERE id = ?", [userid], function(err, user) {
     		if (err) {
     			return res.json({success: false, msg: err});
     		} else {
