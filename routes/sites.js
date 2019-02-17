@@ -25,7 +25,7 @@ router.post('/getSitesForUser', (req, res, next) => {
     			if (sites.length != 0) {
     				return res.json({success: true, sites: sites});
     			} else {
-    				return res.json({success: false, msg: "User not found."});
+    				return res.json({success: false, msg: "Sites not found."});
     			}
     		}
 		});
