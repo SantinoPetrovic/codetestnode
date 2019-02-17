@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+	users: Object;
 
-  constructor() { }
+    constructor(
+	  	private loginService: LoginService,
+	  	private router: Router
+    ) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+	    this.loginService.getUsers().subscribe(data => {	    	
+	    	if(data.success) {
+	    		this.users = data.users;	    		
+	    	} else {
+	    	}
+	    });  
+    }
 
 }
