@@ -8,6 +8,8 @@ import { SitesComponent } from './components/sites/sites.component';
 import { LoginComponent } from './components/login/login.component';
 import { AlarmComponent } from './components/alarm/alarm.component';
 import { DeviceComponent } from './components/device/device.component';
+import { HomeComponent } from './components/home/home.component';
+import { UsersComponent } from './components/users/users.component';
 
 const appRoutes: Routes = [
  {path:'', component: HomeComponent},
@@ -23,7 +25,9 @@ const appRoutes: Routes = [
     SitesComponent,
     LoginComponent,
     AlarmComponent,
-    DeviceComponent
+    DeviceComponent,
+    HomeComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
