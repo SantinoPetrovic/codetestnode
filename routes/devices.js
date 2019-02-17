@@ -25,7 +25,7 @@ router.get('/getDeviceBySite', (req, res, next) => {
     			if (devices.length != 0) {
     				return res.json({success: true, devices: devices});
     			} else {
-    				return res.json({success: false, msg: "Device zones not found."});
+    				return res.json({success: false, msg: "Device not found."});
     			}
     		}
 		});
