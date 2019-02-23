@@ -1,5 +1,5 @@
 <div *ngIf="users">
 	<h1>Login</h1>
 	<p>Please choose one of the users listed below.</p>
-	<li *ngFor="let user of users;">{{user.username}}</li>
+	<li *ngFor="let user of users;" (click)="login(user)">{{user.username}}</li>
 </div>

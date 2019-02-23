@@ -24,4 +24,12 @@ export class LoginComponent implements OnInit {
         });
     }
 
+    login(user) {
+      this.loginService.tokenizeUser(user).subscribe(data => {
+        if(data.success) {
+          this.loginService.storeUserData(data.token, data.user);
+        }
+      });      
+    }
+
 }
