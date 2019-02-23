@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-	users: Object;
+  users: Object;
 
     constructor(
-	  	private loginService: LoginService,
-	  	private router: Router
+      private loginService: LoginService,
+      private router: Router,
+      private activatedRoute: ActivatedRoute,
     ) { }
 
     ngOnInit() {
- 
+        this.loginService.getUsers().subscribe(data => {
+          if(data.success) {
+            this.users = data.users;
+          }
+        });
     }
 
 }
