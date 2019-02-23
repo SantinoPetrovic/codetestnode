@@ -16,13 +16,14 @@ import { UsersComponent } from './components/users/users.component';
 
 
 import { LoginService } from './services/login.service';
+import { TokenGuard } from './guards/token.guard';
 
 const appRoutes: Routes = [
  {path:'', component: HomeComponent},
  {path:'users', component: UsersComponent},
- {path:'sites', component: SitesComponent},
- {path:'sites/:siteid/alarmZones', component: AlarmComponent},
- {path:'sites/:siteid/devices', component: DeviceComponent},
+ {path:'sites', component: SitesComponent, canActivate:[TokenGuard]},
+ {path:'sites/:siteid/alarmZones', component: AlarmComponent, canActivate:[TokenGuard]},
+ {path:'sites/:siteid/devices', component: DeviceComponent, canActivate:[TokenGuard]},
  {path:'login', component: LoginComponent},
 ]
 
@@ -44,7 +45,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [LoginService],
+  providers: [LoginService, TokenGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
