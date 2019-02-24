@@ -18,7 +18,7 @@ export class LoginService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', '*');
-    return this.http.get('http://159.65.52.170:3000/users/getUsers', {headers: headers})
+    return this.http.get('http://localhost:3000/users/getUsers', {headers: headers})
       .pipe(map(res => res.json()));  	
   }
 
@@ -26,7 +26,7 @@ export class LoginService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', '*');
-    return this.http.post('http://159.65.52.170:3000/users/tokenize', user, {headers: headers})
+    return this.http.post('http://localhost:3000/users/tokenize', user, {headers: headers})
       .pipe(map(res => res.json()));
   }  
 
