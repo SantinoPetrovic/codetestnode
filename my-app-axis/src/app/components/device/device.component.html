@@ -8,10 +8,10 @@
     <th>Alarm zone</th>
   </tr>
   <tr *ngFor="let device of devices;">
-  	<td>{{device.title}}</td>
-  	<td>{{device.model}}</td>
-  	<td>a</td>
-  	<td>a</td>
-  	<td>a</td>
+    <td>{{device.title}}</td>
+    <td>{{device.model}}</td>   
+    <td>{{device.connected}}</td>
+    <td><div *ngFor="let storage of device.storages">{{storage.type}}: {{storage.state}}</div></td>
+    <td>a</td>
   </tr>
 </table>
