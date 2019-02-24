@@ -1,0 +1,7 @@
+li {
+	list-style-type: none;
+	cursor: pointer;
+	padding: 20px;
+	border: 1px solid #000;
+	width: 70px;
+}
