@@ -14,9 +14,9 @@ const DB = new sqlite3.Database(config.dbpath, function(err){
 });
 
 // Get specific sites depending on which user you are logged in as.
-router.post('/getSitesForUser', (req, res, next) => {
-	const userid = req.body.userid;
-
+router.post('/', (req, res, next) => {
+	const userid = req.body.id;
+    
 	DB.serialize(function() {
     	DB.all("SELECT * FROM sites WHERE user_id = ?", [userid], function(err, sites) {
     		if (err) {

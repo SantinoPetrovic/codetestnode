@@ -1,3 +1,5 @@
-<p>
-  sites works!
-</p>
+<div *ngIf="sites">
+	<h1>Sites</h1>
+	<p>Please choose one site to navigate.</p>
+	<a *ngFor="let site of sites;" href="/sites/{{site.id}}/devices">{{site.title}}</a>
+</div>
