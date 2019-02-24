@@ -20,13 +20,22 @@ export class DeviceComponent implements OnInit {
   ) { }
 
   ngOnInit() { 
+
     /* Get devices and alarm zones depending on which site id is set on route */
     const siteid = this.activatedRoute.snapshot.paramMap.get('siteid');
     this.sitesservice.getAlarmZoneForSite(siteid).subscribe(data => {
       if(data.success) {
-        this.alarmZones = data.alarms;
+        for(let alarm in data.alarms)
+        if(data.alarms[alarm].armed == "1") {
+          data.alarms[alarm].armed = "armed";
+        } else {
+          data.alarms[alarm].armed = "disarmed";
+        }       
+        this.alarmZones = data.alarms;       
       }
-    });   
+    });  
+
+    /* Get storages and bind it with alarm zones into their device */
     this.sitesservice.getDeviceForSite(siteid).subscribe(data => {
       if(data.success) {
         for(let device in data.devices) {
@@ -40,8 +49,14 @@ export class DeviceComponent implements OnInit {
               data.devices[device].storages = storageData.storages;
             }
           });
+          for(let alarm in this.alarmZones) {
+            if(this.alarmZones[alarm].id == data.devices[device].alarm_zone_id) {
+              data.devices[device].alarm = this.alarmZones[alarm];
+            }
+          }
         }
         this.devices = data.devices;
+        console.log(this.devices);
       }
     });      
 

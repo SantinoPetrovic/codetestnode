@@ -12,6 +12,6 @@
     <td>{{device.model}}</td>   
     <td>{{device.connected}}</td>
     <td><div *ngFor="let storage of device.storages">{{storage.type}}: {{storage.state}}</div></td>
-    <td>a</td>
+    <td><div *ngIf="device.alarm">{{device.alarm.name}}: {{device.alarm.armed}}</div></td>
   </tr>
 </table>
