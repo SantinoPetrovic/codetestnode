@@ -1,3 +1,13 @@
+# Which files to look at
+  * `/server.js` - Node js app
+  * `/services/   /config/` - Config and routing folders for server.js
+  * `/my-axis-app` - Angular installation
+  * `/my-axis-app/src/app` - My code logic folder
+  * `/my-axis-app/src/app/app.module.ts` - The file that calls all components/services/templates/guards/routing.
+  * `/my-axis-app/src/app/components/` - All components (HTML files, CSS files, Typescript files).
+  * `/my-axis-app/src/app/services/` - All services (Handles requests, and send them to node app. The data returns to components).
+  * `/my-axis-app/src/guards/` - Login check logic for sites (used ONLY on site component).
+
 # Assignment
 Your assignment is to implement a small single-page application (server and
 client), which displays sites and their devices.
